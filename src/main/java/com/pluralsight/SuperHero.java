@@ -29,7 +29,7 @@ public class SuperHero extends SuperPerson{
         if(baseDamage == 0){
             System.out.println(this.getName() + "  Swings heroically and misses because that happens sometimes");
         }else{
-            System.out.println(this.getName() + " lands a super punch on  " + opponent.getName() + " and caused " + totalDamage + " damage");
+            System.out.println(this.getName() + " lands a heroic punch on  " + opponent.getName() + " and caused " + totalDamage + " damage");
 
             //actually cause the damage to the opponent
             opponent.takeDamage(totalDamage);

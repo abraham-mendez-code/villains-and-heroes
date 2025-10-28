@@ -29,7 +29,7 @@ public class SuperVillain extends SuperPerson {
         if (baseDamage == 0) {
             System.out.println(this.getName() + "  Fires an evil blast...and misses!");
         } else {
-            System.out.println(this.getName() + " hits  " + opponent.getName() + " with an evil blast for " + totalDamage + " damage");
+            System.out.println(this.getName() + " hits  " + opponent.getName() + " with an villainous blast for " + totalDamage + " damage");
 
             //actually cause the damage to the opponent
             opponent.takeDamage(totalDamage);

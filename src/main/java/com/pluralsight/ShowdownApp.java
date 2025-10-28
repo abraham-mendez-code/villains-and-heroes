@@ -17,13 +17,13 @@ public class ShowdownApp {
         while (true) {
 
             loopedHero.fight(loopedVillain);
-            System.out.println("After fighting " + loopedVillain.getName() + " has " + loopedVillain.getHealth() + " health");
+            System.out.println(loopedVillain.getName() + " has " + loopedVillain.getHealth() + " health remaining");
 
             if (loopedVillain.getHealth() == 0)
                 break;
 
             loopedVillain.fight(loopedHero);
-            System.out.println("After fighting " + loopedHero.getName() + " has " + loopedHero.getHealth() + " health");
+            System.out.println(loopedHero.getName() + " has " + loopedHero.getHealth() + " health remaining");
 
             if (loopedHero.getHealth() == 0) {
                 heroWins = false;
