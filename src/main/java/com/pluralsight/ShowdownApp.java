@@ -19,13 +19,13 @@ public class ShowdownApp {
             loopedHero.fight(loopedVillain);
             System.out.println(loopedVillain.getName() + " has " + loopedVillain.getHealth() + " health remaining");
 
-            if (loopedVillain.getHealth() == 0)
+            if (!loopedVillain.isAlive())
                 break;
 
             loopedVillain.fight(loopedHero);
             System.out.println(loopedHero.getName() + " has " + loopedHero.getHealth() + " health remaining");
 
-            if (loopedHero.getHealth() == 0) {
+            if (!loopedHero.isAlive()) {
                 heroWins = false;
                 break;
             }
