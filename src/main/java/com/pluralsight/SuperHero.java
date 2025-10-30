@@ -35,6 +35,8 @@ public class SuperHero extends SuperPerson{
             opponent.takeDamage(totalDamage);
         }
 
+        logHit(opponent);
+
     }
 
 }

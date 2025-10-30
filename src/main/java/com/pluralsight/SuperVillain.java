@@ -34,5 +34,8 @@ public class SuperVillain extends SuperPerson {
             //actually cause the damage to the opponent
             opponent.takeDamage(totalDamage);
         }
+
+        logHit(opponent);
+
     }
 }

@@ -1,11 +1,14 @@
 package com.pluralsight;
 
-public class SuperPerson {
+import java.util.HashMap;
 
-    //create soe properties for the class
+public abstract class SuperPerson {
+
+    //create some properties for the class
     protected String name;
     protected int health;
     protected int experiencePoints;
+    private HashMap<String, Integer> battleLog = new HashMap<>();
 
     //the constructor to help create an instance of our Super Person
     public SuperPerson(String name, int health) {
@@ -71,6 +74,23 @@ public class SuperPerson {
     //method that allows the SuperPerson to tell us how they are
     public String getStatus(){
         return this.getName() + " has " + this.getHealth() + " health!";
+    }
+
+    // method that logs an entry for our SuperPerson
+    public void logHit(SuperPerson opponent) {
+
+        String name = opponent.name;
+        int count = battleLog.getOrDefault(name, 0);
+        battleLog.put(name, count +1);
+
+    }
+
+    // print the battle log for a SuperPerson
+    public void printBattleLog() {
+        System.out.println("Battle log for " + name + ":");
+        for (HashMap.Entry<String, Integer> entry : battleLog.entrySet()) {
+            System.out.println(" - Hit " + entry.getKey() + ":" + entry.getValue() + " times");
+        }
     }
 
 }
