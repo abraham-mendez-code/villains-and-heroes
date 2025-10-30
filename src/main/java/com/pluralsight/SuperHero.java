@@ -21,6 +21,7 @@ public class SuperHero extends SuperPerson{
         //return a whole number between 0 and 101 inculusive of the 0 but not the 101 (0-100)
         int baseDamage = rand.nextInt(101);
         int bonus = 0; // initialize the bonus
+        String randomItem = "";
 
         // make the total damage interesting by taking into account our experiencePoints
         if (!inventory.isEmpty()) {
@@ -28,7 +29,7 @@ public class SuperHero extends SuperPerson{
             ArrayList<String> items = new ArrayList<String>(inventory.keySet());
 
             // get a random item name from the above list we just made and store it in randomeItem
-            String randomItem = items.get(new Random().nextInt(items.size()));
+            randomItem = items.get(new Random().nextInt(items.size()));
 
             // get the point value for that item from the inventory HashMap
             // bonus would be the int that represents the damage the item will do.
@@ -43,7 +44,9 @@ public class SuperHero extends SuperPerson{
         if(baseDamage == 0){
             System.out.println(this.getName() + "  Swings heroically and misses because that happens sometimes");
         }else{
-            System.out.println(this.getName() + " lands a heroic punch on  " + opponent.getName() + " and caused " + totalDamage + " damage");
+            System.out.println(this.getName() + " lands a heroic punch on  " + opponent.getName() + " and caused " + (totalDamage - bonus) + " damage");
+            if (bonus != 0)
+                System.out.println(this.getName() + " used their " + randomItem + " and caused " + bonus + " additional damage");
 
             //actually cause the damage to the opponent
             opponent.takeDamage(totalDamage);

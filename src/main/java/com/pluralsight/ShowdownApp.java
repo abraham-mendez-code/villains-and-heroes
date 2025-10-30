@@ -15,6 +15,10 @@ public class ShowdownApp {
         System.out.println(loopedVillain.getStatus());
 
         boolean heroWins = true;
+
+        loopedHero.addPowerUp("glove", 10);
+        loopedVillain.addPowerUp("trap", 7);
+
         while (loopedHero.isAlive() && loopedVillain.isAlive()) {
 
             System.out.println("\n-- Hero's Turn --");
