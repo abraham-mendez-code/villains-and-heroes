@@ -8,7 +8,8 @@ public abstract class SuperPerson {
     protected String name;
     protected int health;
     protected int experiencePoints;
-    private HashMap<String, Integer> battleLog = new HashMap<>();
+    protected HashMap<String, Integer> battleLog = new HashMap<>();
+    protected HashMap<String, Integer> inventory = new HashMap<>();
 
     //the constructor to help create an instance of our Super Person
     public SuperPerson(String name, int health) {
@@ -91,6 +92,18 @@ public abstract class SuperPerson {
         for (HashMap.Entry<String, Integer> entry : battleLog.entrySet()) {
             System.out.println(" - Hit " + entry.getKey() + ":" + entry.getValue() + " times");
         }
+    }
+
+    public void addPowerUp(String name, int count) {
+
+        inventory.put(name, count);
+
+    }
+
+    public int getPowerBonus(String name) {
+
+        return inventory.get(name);
+
     }
 
 }

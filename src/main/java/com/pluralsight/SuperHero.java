@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class SuperHero extends SuperPerson{
@@ -19,9 +20,22 @@ public class SuperHero extends SuperPerson{
         Random rand = new Random();
         //return a whole number between 0 and 101 inculusive of the 0 but not the 101 (0-100)
         int baseDamage = rand.nextInt(101);
+        int bonus = 0; // initialize the bonus
 
-        //lets make the total damage interesting by taking into account our experiencePoints
-        int totalDamage = baseDamage + this.experiencePoints;
+        // make the total damage interesting by taking into account our experiencePoints
+        if (!inventory.isEmpty()) {
+            // create a new list of just the keys from the HashMap (glove, hammer, etc....)
+            ArrayList<String> items = new ArrayList<String>(inventory.keySet());
+
+            // get a random item name from the above list we just made and store it in randomeItem
+            String randomItem = items.get(new Random().nextInt(items.size()));
+
+            // get the point value for that item from the inventory HashMap
+            // bonus would be the int that represents the damage the item will do.
+            bonus = inventory.get(randomItem);
+        }
+
+        int totalDamage = baseDamage + this.experiencePoints + bonus;
 
         //determine if we missed or hit based on the baseDamage
         //if we got a 0 for the base damage we missed
